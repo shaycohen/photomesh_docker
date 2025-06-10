@@ -19,7 +19,7 @@ RUN mkdir -p /app/Fuser
 RUN unzip /tmp/pm.zip -d /app/Fuser && rm -rf /tmp/*
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod 777 /entrypoint.sh
+RUN sudo chmod 755 /entrypoint.sh
 
 RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu-user
 RUN usermod -aG sudo ubuntu
@@ -30,7 +30,7 @@ WORKDIR /home/ubuntu
 RUN wineboot -u 
 RUN winetricks nocrashdialog
 RUN winetricks --self-update
-RUN winetricks dotnet48 
+RUN winetricks -q dotnet48 
 ENV WINEDLLOVERRIDES="concrt140,msvcp140,vcomp140,vcruntime140,vcruntime140_1=n" 
 
 EXPOSE 5900
