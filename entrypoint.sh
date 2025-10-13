@@ -2,7 +2,7 @@
 NAS_IP="${NAS-IP-192.168.1.1}"
 NAS_NAME="${NAS-NAME-vs-fn-nfs}"
 SHARE_NAME="${SHARE_NAME-data_directory}"
-SHAREFOLDER="${\\\\$NAS_IP\\$SHARE_NAME\\working-folder\\}"
+SHAREFOLDER="${\\\\$NAS_NAME\\$SHARE_NAME\\working-folder\\}"
 ACTION="${1:-start}"
 echo "NASIP[$NAS_IP] NASNAME[$NAS_NAME] SHARENAME[$SHARE_NAME] SHAREFOLDER[$SHAREFOLDER] ACTION[$ACTION]"
 
