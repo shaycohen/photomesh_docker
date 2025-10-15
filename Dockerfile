@@ -27,10 +27,10 @@ RUN usermod -aG sudo ubuntu
 USER ubuntu:ubuntu
 WORKDIR /home/ubuntu
 
-RUN wineboot -u 
-RUN winetricks nocrashdialog
-RUN winetricks --self-update
-RUN winetricks -q dotnet48 
+RUN \
+    wineboot -u \
+    && winetricks nocrashdialog \
+    && winetricks -q dotnet48 
 ENV WINEDLLOVERRIDES="concrt140,msvcp140,vcomp140,vcruntime140,vcruntime140_1=n" 
 
 EXPOSE 5900
